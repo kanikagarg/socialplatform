@@ -1,0 +1,7 @@
+{% extends 'feeds/feed_list.html' %}
+{% block post %}
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="POST" class="btn btn-primary mb-5"></input>
+    </form>
+{% endblock %}

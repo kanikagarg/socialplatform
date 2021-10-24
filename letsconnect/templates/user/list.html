@@ -1,0 +1,9 @@
+{% extends 'base_navbar.html' %}
+{% block content %}
+<h1>Users</h1>
+{% for user in users %}
+   userid {{user.id}} feeds :: {{ user.feeds }} 
+    <br/>    
+    
+{% endfor %}
+{% endblock content %}
