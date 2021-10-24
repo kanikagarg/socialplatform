@@ -7,4 +7,3 @@ class Feed(models.Model):
     created = models.DateTimeField(auto_now_add=True),
     updated = models.DateTimeField(auto_now_add=True),
     user = models.ForeignKey(User,blank=False,related_name="feeds", on_delete=models.CASCADE)
-
