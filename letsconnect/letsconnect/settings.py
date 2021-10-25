@@ -145,3 +145,5 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
 # DISABLE_COLLECTSTATIC=1
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+
+ALLOWED_HOSTS = ['*']
