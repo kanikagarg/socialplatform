@@ -2,7 +2,7 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: python letsconnect/manage.py runserver 0.0.0.0:$PORT
+  web: python manage.py runserver 0.0.0.0:$PORT
 
 # build:
 #   docker:
