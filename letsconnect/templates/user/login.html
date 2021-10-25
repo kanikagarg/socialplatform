@@ -4,8 +4,19 @@ Login
 {% endblock %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" class="btn btn-secondary"/>
-    </form>
+<div class="text-center" style="color: wheat;"><h1>Login</h1></div>
+<div style="background-color: #fdfdfd;; padding:1%;width: fit-content;display: inline-flex;" class="colM" >
+    <div>
+        <form method="post" action="{% url 'feed.list' %}">{% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" class="btn btn-secondary"/>
+        </form>
+    </div>
+</div>
+<div style="color: cornsilk;font-weight: inherit;">Don't have an account with us? <a href="{% url 'register' %}">Register here </a></div>
+{% if form.errors %}
+        <div class="alert alert-danger my-5">
+            {{ form.errors.title.as_text }}
+        </div>
+    {% endif %}
 {% endblock %}

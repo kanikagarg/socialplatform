@@ -1,8 +1,5 @@
-# from django.db import models
-# from django.db.models import fields
-from django.contrib.auth.models import User
 from django.http.response import Http404, HttpResponseRedirect
-from django.views.generic.base import RedirectView
+# from django.views.generic.base import RedirectView
 # from django.shortcuts import render
 
 from .models import Feed
@@ -23,11 +20,17 @@ class FeedsCreateView(LoginRequiredMixin , CreateView):
         print(success_url)
         return HttpResponseRedirect(self.get_success_url())
 
+from users.models import UserFollow
 class FeedListView(LoginRequiredMixin , ListView):
     model = Feed
     context_object_name = 'feeds'
     template_name = 'feeds/feed_list.html'
     login_url = "/login"
-    
     def get_queryset(self):
-        return self.request.user.feeds.all()
+        logged_user_id = self.request.user.id
+        following_id =[]
+        for mapping in UserFollow.objects.filter(user_id=logged_user_id):
+            following_id.append(mapping.following.id)
+        feeds = Feed.objects.filter(user_id__in=following_id).order_by('?')
+        return feeds
+        # return self.request.user.feeds.all()
