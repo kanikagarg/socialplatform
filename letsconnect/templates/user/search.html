@@ -1,14 +1,14 @@
 {% extends 'base_navbar.html' %}
 {% block content %}
     <h1 style="color: antiquewhite;" class="text-center">Users</h1>
-    {% if users|length >= 1 %}
+    {% if users|length > 1 %}
         {% for user in users %}
             <div class="row row-cols3 g-2 my-5">
                 <div class="col text-center btn-outline-light bg-dark">
                     <div class="card" >
                         <div class="card-body">
                         <h5 class="card-title" style="color: rgb(100, 20, 20);">{{ user.username}}</h5>
-                        <a href="{% url 'follow'  uid=user.id  %}" class="btn btn-primary">Follow User</a>
+                        <a href="{% url 'follow'  uid=user.id  %}" class="btn ">Follow User</a>
                         </div>
                     </div>
                 </div>

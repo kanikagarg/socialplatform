@@ -3,10 +3,12 @@
 Signup
 {% endblock %}
 {% block content %}
-
-<form method="post" style="text-align: left;margin: 0 auto; width: 600px;"> {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn btn-secondary"/>
-</form>
-
+<div  class="text-center " style="color:wheat;"><h1>Register</h1></div>
+<div style="background-color: #fdfdfd;; padding:1%;width: fit-content;display: inline-flex;" class="colM" >
+    <form method="post" style="text-align: left;margin: 0 auto; width: 600px;"> {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" name="register" class="btn btn-primary"/>
+        <a href="{% url 'login' %}" class="btn btn-secondary btn-outline-light">Back</a>
+    </form>
+</div>
 {% endblock %}

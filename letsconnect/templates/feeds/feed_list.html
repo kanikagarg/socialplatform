@@ -1,27 +1,42 @@
 {% extends 'base_navbar.html' %}
 
-{%  block title %}FEEDS{% endblock  %}
+{%  block title %}POSTS{% endblock  %}
 {%  block content %}
-<div >
+<div class="container">
+    <div >
         <div id="post">
             {% block post %}
             {% endblock %}
         </div>
-<div>
-
-
+    <div>
     <h1 class="my-5">
-        Here is the feed_list
-    </h1>
+        {% if feeds|length < 1%}
+        <div class="row row-cols3 g-2 my-5 align-middle">
+            <div class="col text-center btn-outline-light bg-dark">
+                <div class="card align-middle" >
+                    <div class="card-body">
+                      <h5 class="card-title " style="color: rgb(100, 20, 20);">OOPS! No feeds to display! Please Create Posts or follow others 
+                        to get a customised feeds...</h5>
+                    </div>
+                  </div>
+            </div>
+        </div> 
+        {% else %}
+            <div style="color: antiquewhite;" >Recent Updates:
+            </div>
+        {% endif %}
     {% for note in feeds %}
     <div class="row row-cols3 g-2 my-5">
         <div class="col">
-            <div class="p-3 border">
-                <div>@{{ note.user  }}:</div>
-                    <h2>{{ note.status  }}</h2>
-            </div>
+            <div class="card" >
+                <div class="card-body">
+                  <h5 class="card-title">@{{ note.user  }} Posted:</h5>
+                  <p class="card-text">{{ note.status  }}</p>
+                </div>
+              </div>
         </div>
     </div>
     {% endfor %}
+</div>
 </div>
 {% endblock  %}
