@@ -142,3 +142,4 @@ CACHE = {
 }
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
+DISABLE_COLLECTSTATIC=1
