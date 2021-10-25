@@ -1,1 +1,0 @@
-web: gunicorn letsconnect/letsconnect.wsgi:application -b 0.0.0.0:$PORT  --error-logfile gunicorn.error.log --access-logfile gunicorn.log --capture-output
