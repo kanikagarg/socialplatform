@@ -2,4 +2,10 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: gunicorn letsconnect/letsconnect.wsgi:application --error-logfile gunicorn.error.log --access-logfile gunicorn.log --capture-output
+  web: python letsconnect/manage.py runserver 0.0.0.0:$PORT
+
+# build:
+#   docker:
+#     web: Dockerfile
+# run:
+#   web: gunicorn letsconnect/letsconnect.wsgi:application  0.0.0.0:$PORT --error-logfile gunicorn.error.log --access-logfile gunicorn.log --capture-output

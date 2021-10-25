@@ -6,7 +6,7 @@ RUN apt-get install -y unixodbc-dev
 COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
-EXPOSE 8000
-EXPOSE 443
+# EXPOSE 8000
+# EXPOSE 443
 WORKDIR /app/letsconnect
 CMD bash run.sh
