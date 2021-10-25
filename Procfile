@@ -1,1 +1,1 @@
-web: gunicorn letsconnect.wsgi:application --error-logfile gunicorn.error.log --access-logfile gunicorn.log --capture-output
+web: gunicorn letsconnect/letsconnect.wsgi:application --error-logfile gunicorn.error.log --access-logfile gunicorn.log --capture-output
