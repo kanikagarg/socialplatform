@@ -22,8 +22,6 @@ class RegisterView(CreateView):
 class LoginUserView(LoginView):
     model = User
     template_name = "user/login.html"
-    def form_valid(self, form):
-        return redirect(self.get_success_url())
 
 class LogoutUserView(LogoutView):
     model = User
