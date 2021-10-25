@@ -3,7 +3,3 @@ build:
     web: Dockerfile
 run:
   web: gunicorn letsconnect.wsgi:application --error-logfile gunicorn.error.log --access-logfile gunicorn.log --capture-output
-release:
-  image: worker
-  command:
-    - pip install requirements.txt
